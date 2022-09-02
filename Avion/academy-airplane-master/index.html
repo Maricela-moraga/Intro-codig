@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+		#ocean {
+			background-image: url("ocean.jpg");
+			width: 900px;
+			height: 700px;
+		}
+		.player{
+			position: absolute;
+			width: 70px;
+			height: 75px;
+			background-image: url("player.png");
+		}
+		.enemy{
+			position: absolute;
+			width: 70px;
+			height: 75px;
+			background-image: url("enemy.png");
+
+		}
+	</style>
+	<div id= "ocean"> 
+		<div id="players">
+			
+		</div>
+		<div id="enemies">
+			<div class="enemy"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var player = {
+			left: 450,
+			top:620
+		}
+
+		var enemies =[
+		{left: 350,top:200},
+		{left: 450,top:250}
+
+		]
+		
+		funtion drawPlayer (){
+			content= "<div class= 'player' style= 'left: "+ player.left +"px; top: "+ player.top +" px'></div>"
+			document.getElemenById ("players").innerHTML = content;
+		}
+		drawPlayer();
+
+		document.onkeydown = funtion(e){
+			console.log (e);
+			if (e.keycode == 37) {
+				player.left= player.left -10;
+			}
+			if (e.keycode == 39) {
+				player.left= player.left +10;
+			}
+			
+			drawPlayer();
+		
+	}
+
+	</script>
+</body>
+</html>
